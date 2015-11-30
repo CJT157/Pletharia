@@ -1,0 +1,45 @@
+using System;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace PlethariaPlus.Items.Weapons
+{
+    public class HeolnirBattleAxe : ModItem
+    {
+        public override void SetDefaults()
+        {
+            item.name = "Heolnir Battleaxe";
+            item.damage = 275;
+            item.melee = true;
+            item.width = 50;
+            item.height = 50;
+            item.toolTip = "Mjolnir's lesser known brother.";
+            item.useTime = 18;
+            item.useAnimation = 20;
+            item.useStyle = 1;
+            item.knockBack = 8;
+            item.value = 10000;
+            item.rare = 8;
+            item.useSound = 1;
+            item.autoReuse = false;
+        }
+
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "CelestialBinder", 1);
+            recipe.AddIngredient(ItemID.LunarBar, 15);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+
+            //Easy to obtain recipe
+            recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.DirtBlock);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
+    }
+}
