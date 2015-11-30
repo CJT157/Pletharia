@@ -28,6 +28,20 @@ namespace Pletharia.Projectiles.Staves
 
         public override bool PreAI()
         {
+            if (projectile.alpha < 170)
+            {
+                for (int num136 = 0; num136 < 10; num136++)
+                {
+                    float x2 = (projectile.position.X) - projectile.velocity.X / 10f * (float)num136;
+                    float y2 = (projectile.position.Y) - projectile.velocity.Y / 10f * (float)num136;
+                    int num137 = Dust.NewDust(new Vector2(x2, y2), 1, 1, mod.DustType("DiamondDust"), 0f, 0f, 0, Color.White * 0.75F, 1f);
+                    //Main.dust[num137].alpha = projectile.alpha;
+                    Main.dust[num137].position.X = x2;
+                    Main.dust[num137].position.Y = y2;
+                    Main.dust[num137].velocity *= 0f;
+                    Main.dust[num137].noGravity = true;
+                }
+            }
             float direction = (float)Math.Sqrt(projectile.velocity.X * projectile.velocity.X + projectile.velocity.Y * projectile.velocity.Y);
             float ai = projectile.localAI[0];
             if (ai == 0.0F)

@@ -27,6 +27,14 @@ namespace Pletharia.Projectiles.Staves
 
         public override bool PreAI()
         {
+            for (int num105 = 0; num105 < 1; num105++)
+            {
+                int num106 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, mod.DustType("RubyDust"), projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 100, default(Color), 2f);
+                Main.dust[num106].noGravity = true;
+                Dust dust9 = Main.dust[num106];
+                dust9.velocity.X = dust9.velocity.X * 0.3f;
+                dust9.velocity.Y = dust9.velocity.Y * 0.3f;
+            }
             if (projectile.ai[0] == 1)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 0.8F;
@@ -44,6 +52,12 @@ namespace Pletharia.Projectiles.Staves
         {
             if (projectile.ai[0] == 1)
             {
+                for (int num105 = 0; num105 < 15; num105++)
+                {
+                    int num106 = Dust.NewDust(new Vector2(projectile.position.X - 8, projectile.position.Y - 8), projectile.width + 16, projectile.height + 16, mod.DustType("RubyDust"), projectile.velocity.X * 0.1f, projectile.velocity.Y * 0.1f, 100, default(Color), 2f);
+                    Main.dust[num106].noGravity = true;
+                }
+
                 // Spawn two additional projectiles.
                 float rotInDegrees = MathHelper.ToDegrees(projectile.rotation);
 

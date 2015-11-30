@@ -26,6 +26,15 @@ namespace Pletharia.Projectiles.Staves
 
         public override bool PreAI()
         {
+            for (int num105 = 0; num105 < 1; num105++)
+            {
+                int num106 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, mod.DustType("AmethystDust"), projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 100, default(Color), 2f);
+                Main.dust[num106].noGravity = true;
+                Dust dust9 = Main.dust[num106];
+                dust9.velocity.X = dust9.velocity.X * 0.3f;
+                dust9.velocity.Y = dust9.velocity.Y * 0.3f;
+            }
+
             projectile.rotation = projectile.velocity.ToRotation() + 0.8F;
             return false;
         }

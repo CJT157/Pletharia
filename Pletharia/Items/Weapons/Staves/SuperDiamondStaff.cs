@@ -28,7 +28,7 @@ namespace Pletharia.Items.Weapons.Staves
             item.useStyle = 5;
             Item.staff[item.type] = true;
 
-            item.mana = 0;//16;
+            item.mana = 16;
             item.magic = true;
 
             item.shoot = mod.ProjectileType("DiamondShard");
